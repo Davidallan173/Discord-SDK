@@ -4,9 +4,9 @@ from direct.task import Task # Used to manage the Callback timer
 
 class DiscordRPC:
 
-    def __init__(self):
+    def __init__(self, AppID, InstallPath):
         self.CodeHandle = cdll.LoadLibrary("SDK.dll") # Load the RP code
-        self.CodeHandle.DLLMain()
+        self.CodeHandle.DLLMain(AppID, InstallPath)
         self.UpdateTask = None
         self.details = "Loading" # The writing next to the photo
         self.image = "logo" #The main photo
@@ -17,7 +17,7 @@ class DiscordRPC:
         self.PartySize = 0
         self.MaxParty = 0
 
-    def stopLobby(self):  #Boarding groups :D
+    def stopLobby(self):  #Lobbys
         self.PartySize = 0
         self.state = ""
         self.MaxParty = 0
